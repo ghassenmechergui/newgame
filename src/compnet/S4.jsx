@@ -5,14 +5,15 @@ import isColliding from "./logic";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import anime from "animejs/lib/anime.es";
+import "../style/s4.css";
 export default function () {
   const { position, dispatch } = usePosition();
   const [alert, setAlert] = useState(null);
   const navigate = useNavigate();
   let style = {
     position: "absolute",
-    top: `${position.t}px`,
-    left: `${position.l}px`,
+    top: `${position.t}px` || "140px",
+    left: `${position.l}px` || "20px",
   };
   useEffect(() => {
     dispatch({ type: "entre" });
@@ -62,32 +63,51 @@ export default function () {
     }, 10);
 
     const handleKeyDown = (e) => {
-      dispatch({ type: e.key });
+      dispatch({
+        type: e.key,
+        payload: [
+          { t: [0, 210], l: [40, 50] },
+          { t: [90, 300], l: [440, 450] },
+        ],
+      });
     };
 
     document.addEventListener("keydown", handleKeyDown);
 
+    let group = document.getElementsByClassName("x");
+    let top = 1;
+    for (let i = 0; i < group.length; i++) {
+      const element = group[i];
+      element.style.top = `${top}px`;
+      top += 39;
+    }
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       clearInterval(intervalId);
     };
   }, []);
-  anime({
-    targets: ".x1",
-    translateY: 270,
-    direction: "reverse",
-    loop: true,
-    easing: "easeInOutSine",
-  });
+
   return (
     <div className="s4">
       {alert}
       <div className="bac-start"></div>
+      <div className="m1 m"></div>
+      <div className="m2 m"></div>
+
       <div className="bac-end"></div>
-      <div style={style} className="start"></div>
-      <div className="x x1 "></div>
-      <div className="x x2"></div>
-      <div className="x "></div>
+      <div style={style} className="start">
+        <span className="start-spam"></span>
+      </div>
+      <div className="dd">
+        <div className="x  xxx"></div>
+        <div className="x xx "></div>
+        <div className="x xxx"></div>
+        <div className="x xx "></div>
+        <div className="x xxx"></div>
+        <div className="x xx"></div>
+        <div className="x xxx"></div>
+        <div className="x xx"></div>
+      </div>
     </div>
   );
 }

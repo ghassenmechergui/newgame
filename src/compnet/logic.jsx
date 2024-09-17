@@ -30,3 +30,29 @@ export default function isColliding() {
 
   return;
 }
+
+export function is(key) {
+  const group = document.getElementsByClassName("m");
+  const elem1 = document.getElementsByClassName("start-spam")[0];
+  if (elem1) {
+    const rect1 = elem1.getBoundingClientRect();
+    for (let i = 0; i < group.length; i++) {
+      const rect2 = group[i].getBoundingClientRect();
+      const a = { t: [0, 0], l: [0, 0] };
+
+      let isColl = !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+      );
+      if (isColl) {
+        return {
+          ...a,
+          t: [rect2.top - 220, Number(rect2.top - 220) + Number(rect2.height)],
+          l: [rect2.left - 98, Number(rect2.left - 98) + Number(rect2.width)],
+        };
+      }
+    }
+  }
+}

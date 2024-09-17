@@ -1,0 +1,78 @@
+
+.s4{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.s4 .bac-start{
+    height: 70%;
+    
+}
+.s4 .bac-end{
+    height: 70%;
+    bottom: 0 !important;
+    right: 0;
+    top: 30%;
+   
+}
+.s4 .x{
+    left:  13% !important;
+     animation: seconde 3s linear infinite !important; 
+ 
+}
+.s4 .x:nth-child(even){
+     animation: secondeXx 3s linear infinite !important; 
+}
+@keyframes seconde {
+    0%{
+      
+        margin-left: 0;
+    }
+    50%{
+        margin-left: 70%;
+    }
+    100%{
+        margin-left: 0;
+    }
+    
+  }
+  @keyframes secondeXx {
+    0%{
+      
+        margin-left: 70%;
+    }
+    50%{
+        margin-left: 0;
+    }
+    100%{
+        margin-left: 70%;
+    }
+    
+  }
+.s4 .m1{
+    width: 10px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    background-color: black;
+    z-index: 99999;
+    height: 70%;
+}
+.s4 .m2{
+    width: 10px;
+    height:  70%;
+    bottom: 0;
+    right: 50px;
+    background-color: black;
+    position: absolute;
+}
+.s4 .start span {
+    width: 30px;
+    height: 30px;
+   
+    z-index: 100;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
