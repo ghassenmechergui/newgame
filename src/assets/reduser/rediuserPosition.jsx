@@ -3,8 +3,8 @@ import { is } from "../../compnet/logic";
 export default function rediuserPosition(prev, action) {
   let arr = { t: [0, 0], l: [0, 0] }; // [{ t: [0 ,210 ], l: [ 40, 50]},{ t: [90 ,300 ], l: [ 440 , 450]} ]
 
-  if (is(action.type)) {
-    arr = is(action.type);
+  if (is()) {
+    arr = is();
   }
 
   switch (action.type) {
@@ -13,6 +13,8 @@ export default function rediuserPosition(prev, action) {
         t: 140, // Initial vertical position
         l: 15, // Initial horizontal position
       };
+    case "rest":
+      return action.payload;
     case "ArrowUp":
       if (prev.l < arr.l[1] && prev.l + 20 > arr.l[0]) {
         return prev.t - 4 > arr.t[1] || prev.t - 4 < arr.t[0]

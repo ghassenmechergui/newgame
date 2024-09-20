@@ -66,13 +66,4 @@
     background-color: black;
     position: absolute;
 }
-.s4 .start span {
-    width: 30px;
-    height: 30px;
-   
-    z-index: 100;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-}
+

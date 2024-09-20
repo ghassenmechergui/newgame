@@ -1,0 +1,179 @@
+.s6{
+    width: 100%;
+    height: 100%;
+}
+.s6 .bac-start{
+    height: 25px;
+    z-index: 9999999;
+    top: 0;
+}
+.s6 .start {
+    z-index: 99999999;
+}
+.s6 .bac-end{
+    left:  60%;
+    top: 150px;
+    width: 10%;
+    position: absolute;
+    height: 50px;
+}
+.s6 .m1{
+    width: 85%;
+    height: 25px;
+    top: 25px;
+    background-color: black;
+    left: 0;
+    position: absolute;
+}
+.s6 .m2{
+    width: 10%;
+    height: 100%;
+    right: 0;
+    top: 25px;
+    position: absolute;
+    background-color: #252525;
+    z-index: 50;
+}
+.s6 .m3{
+    width: 5%;
+    height: 83.53%;
+    right: 15%;
+    top: 25px;
+    position: absolute;
+    background-color: #000000;
+    z-index: 50;
+}
+.s6 .m4{
+    width: 10%;
+    height: 225px;
+    left: 0;
+    top: 75px;
+    position: absolute;
+    background-color: #000000;
+    z-index: 50;
+}
+
+.s6 .m5{
+    top: 75px;
+    left: 15%;
+    width: 60%;
+    height: 25px;
+    position: absolute;
+    z-index: 50;
+    background-color: #000000;
+}
+.s6 .m6{
+    top: 250px;
+    left: 15%;
+    width: 65%;
+    height: 25px;
+    position: absolute;
+    z-index: 50;
+    background-color: #000000;
+}
+.s6 .m7{
+    top: 100px;
+    width: 5%;
+    height: 150px;
+    left: 15%;
+    background-color: #000000;
+    position: absolute;
+    z-index: 50;
+}
+.s6 .m8{
+    top: 100px;
+    width: 5%;
+    height: 125px;
+    right: 25%;
+    background-color: #000000;
+    position: absolute;
+    z-index: 50;
+}
+.s6 .m9{
+    bottom: 75px;
+    left: 25%;
+    width: 45%;
+    height: 25px;
+    position: absolute;
+    z-index: 50;
+    background-color: #000000;
+}
+.s6 .m10{
+    top: 125px;
+    left: 25%;
+    width: 40%;
+    height: 25px;
+    position: absolute;
+    z-index: 50;
+    background-color: #000000;
+}
+.s6 .m11{
+    top: 150px;
+    width: 5%;
+    height: 75px;
+    left: 25%;
+    background-color: #000000;
+    position: absolute;
+    z-index: 50;
+}
+.s6 .dx{
+    display: flex;
+    
+    width: 600px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999999;
+   
+}
+.s6 .dx:nth-child(2){
+    height: 600px;
+    width: 50px;
+    flex-direction: column;
+    
+}
+.s6 .dd{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: dxrotate 6s linear infinite;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    margin-top: 23px;
+    margin-left: -28px;
+}
+.s6 .x{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0 !important;
+    z-index: 999999;
+    transform: none;
+}
+@keyframes dxrotate {
+    to{
+        transform: rotate(360deg);
+    }
+}
+.s6 .v1{
+position: absolute;
+right: 0;
+top: 0;
+width: 10%;
+height: 25px;
+background-color: burlywood;
+}
+.s6 .v2{
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 10%;
+    height: 25px;
+    background-color: burlywood;
+    }

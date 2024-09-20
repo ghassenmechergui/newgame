@@ -220,3 +220,20 @@ body{
     transform: rotate(360deg);
   }
 }
+.start span {
+  width: 25px;
+  height: 25px;
+ 
+  z-index: 100;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.j{
+  width: 18px;
+  height: 18px;
+  background-color: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 5px black;
+}

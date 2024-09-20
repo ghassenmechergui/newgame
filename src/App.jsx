@@ -1,6 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import First from "./compnet/First";
 import Bac from "./compnet/Bac";
@@ -10,13 +7,10 @@ import Seconde from "./compnet/Seconde";
 import S3 from "./compnet/S3";
 import PositionProvider from "./context/ContextPosition";
 import S4 from "./compnet/S4";
+import S5 from "./compnet/S5";
+import S6 from "./compnet/S6";
+import S7 from "./compnet/S7";
 function App() {
-  const [count, setCount] = useState(0);
-  let devs = [];
-  console.log(devs);
-  devs.map((e, i) => {
-    return i;
-  });
   return (
     <>
       <PositionProvider>
@@ -52,6 +46,30 @@ function App() {
             element={
               <Bac>
                 <S4 />
+              </Bac>
+            }
+          />
+          <Route
+            path="/s5"
+            element={
+              <Bac>
+                <S5 />
+              </Bac>
+            }
+          />
+          <Route
+            path="/s6"
+            element={
+              <Bac>
+                <S6 />
+              </Bac>
+            }
+          />
+          <Route
+            path="/s7"
+            element={
+              <Bac>
+                <S7 />
               </Bac>
             }
           />
