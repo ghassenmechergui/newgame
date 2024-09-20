@@ -2,24 +2,37 @@ export default function isColliding() {
   const elem1 = document.getElementsByClassName("start")[0];
   const group = document.getElementsByClassName("x");
   const elem3 = document.getElementsByClassName("bac-end")[0];
-  const elemJ = document.getElementsByClassName("j")[0];
+  const elemJ = document.getElementsByClassName("j");
   const rect1 = elem1.getBoundingClientRect();
   const elemSV = document.getElementsByClassName("sv");
 
   // check point
   if (elemJ) {
-    const rectJ = elemJ.getBoundingClientRect();
-    if (
-      !(
+    for (let i = 0; i < elemJ.length; i++) {
+      const rectJ = elemJ[i].getBoundingClientRect();
+      let isColl = !(
         rect1.right < rectJ.left ||
         rect1.left > rectJ.right ||
         rect1.bottom < rectJ.top ||
         rect1.top > rectJ.bottom
-      )
-    ) {
-      elemJ.style.display = "none";
-      return "j";
+      );
+      if (isColl) {
+        elemJ[i].style.display = "none";
+        return "j";
+      }
     }
+  }
+  // ckeck end
+  let rect3 = elem3.getBoundingClientRect();
+  if (
+    !(
+      rect1.right < rect3.left ||
+      rect1.left > rect3.right ||
+      rect1.bottom < rect3.top ||
+      rect1.top > rect3.bottom
+    )
+  ) {
+    return "win";
   }
   //
   if (elemSV) {
@@ -50,18 +63,7 @@ export default function isColliding() {
       return "lose";
     }
   }
-  // ckeck end
-  let rect3 = elem3.getBoundingClientRect();
-  if (
-    !(
-      rect1.right < rect3.left ||
-      rect1.left > rect3.right ||
-      rect1.bottom < rect3.top ||
-      rect1.top > rect3.bottom
-    )
-  ) {
-    return "win";
-  }
+
   return;
 }
 
@@ -129,5 +131,11 @@ export function isSV() {
         };
       }
     }
+  }
+}
+export function reseteJ() {
+  const elemJ = document.getElementsByClassName("j");
+  for (let i = 0; i < elemJ.length; i++) {
+    elemJ[i].style.display = "block";
   }
 }

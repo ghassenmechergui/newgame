@@ -1,0 +1,123 @@
+.s8 .bac-start{
+    height: 50px;
+    width: 15%;
+    position: absolute;
+    top: 125px;
+}
+.s8 .bac-end{
+    right: 0;
+    width: 15%;
+    height: 50px;
+    top: 125px;
+    position: absolute;
+}
+.s8 .m1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 125px;
+    background-color: black;
+}
+.s8 .m2{
+    position: absolute;
+    top: 175px;
+    left: 0;
+    width: 15%;
+    height: 125px;
+    background-color: black;
+}
+.s8 .m3{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15%;
+    height: 125px;
+    background-color: black;
+}
+.s8 .m4{
+    position: absolute;
+    top: 175px;
+    right: 0;
+    width: 15%;
+    height: 125px;
+    background-color: black;
+}
+.s8 .x{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0 !important;
+    z-index: 999999;
+    transform: none;
+    width: 10px;
+    height: 10px;
+}
+.s8{
+    width: 100%;
+    height: 100%;
+}
+.s8 .dd{
+    position: relative;
+    left: 15%;
+    width: 70%;
+    top: 0;
+    /* background: blue; */
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+@keyframes x1 {
+    0%{
+        top: 0;
+    }
+    50%{
+        top: 290px;
+    }
+    100%{
+        top: 0;
+    }
+}
+@keyframes x2 {
+    0%{
+        top: 290px;
+    }
+    50%{
+        top: 0;
+    }
+    100%{
+        top: 290px;
+    }
+}
+.s8 .x{
+    animation: x1 3s linear infinite;
+}
+.s8 .x:nth-child(even){
+    animation: x2 3s linear infinite;
+}
+.s8 .j{
+    top: 12.5px;
+    left: 17.5%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-shadow: 1px 1px 8px black;
+}
+.s8 .j1{
+    top: 12.5px;
+    left: 82.5%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+.s8 .j2{
+    top:   287.5px;
+    left: 17.5%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+.s8 .j3{
+    top: 287.5px;
+    left: 82.5%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+
+}

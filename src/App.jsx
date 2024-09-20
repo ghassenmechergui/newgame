@@ -10,6 +10,7 @@ import S4 from "./compnet/S4";
 import S5 from "./compnet/S5";
 import S6 from "./compnet/S6";
 import S7 from "./compnet/S7";
+import S8 from "./compnet/S8";
 function App() {
   return (
     <>
@@ -70,6 +71,14 @@ function App() {
             element={
               <Bac>
                 <S7 />
+              </Bac>
+            }
+          />
+          <Route
+            path="/s8"
+            element={
+              <Bac>
+                <S8 />
               </Bac>
             }
           />

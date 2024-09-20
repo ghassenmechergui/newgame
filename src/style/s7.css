@@ -109,3 +109,19 @@
     width: 15px;
     height: 15px;
 }
+.s7 .j{
+    position: absolute;
+    left: 20%;
+    top: 204px;
+    width: 10px;
+    height: 10px;
+    transform: translateX(-50%);
+}
+.s7 .j1{
+    left: 40% !important;
+}
+.s7 .j2{
+    left: 60% !important;
+}.s7 .j3{
+    left: 80% !important;
+}

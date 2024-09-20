@@ -1,13 +1,14 @@
 import React from "react";
 import { usePosition } from "../context/ContextPosition";
 import { useEffect, useState } from "react";
-import isColliding from "./logic";
+import isColliding, { reseteJ } from "./logic";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "../style/s6.css";
+import "../style/s8.css";
 import { isSV } from "./logic";
-export default function S6() {
-  const [j, setJ] = useState(false);
+
+export default function S8() {
+  const [j, setJ] = useState(0);
   const { position, dispatch } = usePosition();
   const [alert, setAlert] = useState(null);
   const [refresh, setREfresh] = useState({
@@ -24,8 +25,8 @@ export default function S6() {
     dispatch({
       type: "rest",
       payload: {
-        t: 2.5,
-        l: 5,
+        t: 140,
+        l: 20,
       },
     });
   }, []);
@@ -33,6 +34,7 @@ export default function S6() {
     const intervalId = setInterval(() => {
       const collisionResult = isColliding();
       if (collisionResult === "lose") {
+        reseteJ();
         setAlert(
           <Alert
             style={{
@@ -60,7 +62,10 @@ export default function S6() {
           t: isSV().t[0],
           l: isSV().l[0],
         });
-      } else if (collisionResult === "win" && j == true) {
+      } else if (
+        collisionResult === "win" &&
+        j == document.getElementsByClassName("j").length
+      ) {
         setAlert(
           <Alert
             style={{
@@ -77,10 +82,12 @@ export default function S6() {
           </Alert>
         );
         setTimeout(() => {
-          navigate("/s7");
+          //navigate("/s6");
         }, 3000);
       } else if (collisionResult === "j") {
-        setJ(true);
+        setJ((e) => {
+          return e + 1;
+        });
       }
     }, 10);
 
@@ -98,49 +105,36 @@ export default function S6() {
     };
   }, [j, refresh]);
   return (
-    <div className="s6">
+    <div className="s8">
       {alert}
       <div className="bac-start sv"></div>
+      <div className="bac-end sv"></div>
+      <div className="start" style={style}>
+        <span className="start-spam"></span>
+      </div>
       <div className="m1 m"></div>
       <div className="m2 m"></div>
       <div className="m3 m"></div>
       <div className="m4 m"></div>
-      <div className="m5 m"></div>
-      <div className="m6 m"></div>
-      <div className="m7 m"></div>
-      <div className="m8 m"></div>
-      <div className="m9 m"></div>
-      <div className="m10 m"></div>
-      <div className="m11 m"></div>
-      <div className="bac-end "></div>
-      <div style={style} className="start">
-        <span className="start-spam"></span>
-      </div>
-
-      <div className="v1 sv"></div>
-      <div className="v2 sv"></div>
       <div className="j"></div>
+      <div className=" j1 j "></div>
+      <div className=" j2 j"></div>
+      <div className=" j3 j"></div>
       <div className="dd">
-        <div className="dx">
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-        </div>
-        <div className="dx">
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-          <div className="x mx"></div>
-        </div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
+        <div className="x"></div>
       </div>
     </div>
   );
