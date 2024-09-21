@@ -67,16 +67,27 @@ export default function isColliding() {
   return;
 }
 
-export function is() {
+export function is(key) {
   const group = document.getElementsByClassName("m");
   const elem1 = document.getElementsByClassName("start-spam")[0];
   const container = document.getElementsByClassName("container")[0];
   const r = container.getBoundingClientRect();
   if (elem1) {
     const rect1 = elem1.getBoundingClientRect();
+    const i = {
+      t: [
+        rect1.top - r.top + 5,
+        Number(rect1.top - r.top) + Number(rect1.height) - 5,
+      ],
+      l: [
+        rect1.left - r.left + 5,
+        Number(rect1.left - r.left) + Number(rect1.width) - 5,
+      ],
+    };
+    const f = [];
+    let a = { t: [0, 0], l: [0, 0] };
     for (let i = 0; i < group.length; i++) {
       const rect2 = group[i].getBoundingClientRect();
-      const a = { t: [0, 0], l: [0, 0] };
 
       let isColl = !(
         rect1.right < rect2.left ||
@@ -85,7 +96,19 @@ export function is() {
         rect1.top > rect2.bottom
       );
       if (isColl) {
+        f.push({
+          t: [
+            rect2.top - r.top,
+            Number(rect2.top - r.top) + Number(rect2.height),
+          ],
+          l: [
+            rect2.left - r.left,
+            Number(rect2.left - r.left) + Number(rect2.width),
+          ],
+        });
+        /*
         return {
+         
           ...a,
           t: [
             rect2.top - r.top,
@@ -95,9 +118,39 @@ export function is() {
             rect2.left - r.left,
             Number(rect2.left - r.left) + Number(rect2.width),
           ],
+          
         };
+        */
       }
     }
+
+    if (key == "ArrowUp") {
+      for (let n = 0; n < f.length; n++) {
+        if (i.l[1] > f[n].l[0] && i.l[0] < f[n].l[1]) {
+          a = f[n];
+        }
+      }
+    } else if (key == "ArrowDown") {
+      for (let n = 0; n < f.length; n++) {
+        if (i.l[1] > f[n].l[0] && i.l[0] < f[n].l[1]) {
+          a = f[n];
+        }
+      }
+    } else if (key == "ArrowLeft") {
+      for (let n = 0; n < f.length; n++) {
+        if (i.t[1] > f[n].t[0] && i.t[0] < f[n].t[1]) {
+          a = f[n];
+        }
+      }
+    } else if (key == "ArrowRight") {
+      for (let n = 0; n < f.length; n++) {
+        if (i.t[1] > f[n].t[0] && i.t[0] < f[n].t[1]) {
+          a = f[n];
+        }
+      }
+    }
+
+    return a || { t: [0, 0], l: [0, 0] };
   }
 }
 export function isSV() {

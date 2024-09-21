@@ -11,6 +11,7 @@ import S5 from "./compnet/S5";
 import S6 from "./compnet/S6";
 import S7 from "./compnet/S7";
 import S8 from "./compnet/S8";
+import Game from "./compnet/Game";
 function App() {
   return (
     <>
@@ -82,6 +83,7 @@ function App() {
               </Bac>
             }
           />
+          <Route path="/s9" element={<Game />} />
         </Routes>
       </PositionProvider>
     </>
