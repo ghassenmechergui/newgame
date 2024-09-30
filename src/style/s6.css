@@ -27,11 +27,11 @@
 }
 .s6 .m2{
     width: 10%;
-    height: 100%;
+    height: 275px;
     right: 0;
     top: 25px;
     position: absolute;
-    background-color: #252525;
+    background-color: black;
     z-index: 50;
 }
 .s6 .m3{

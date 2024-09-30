@@ -237,3 +237,18 @@ body{
   border-radius: 50%;
   box-shadow: 0 0 5px black;
 }
+.nav-bar{
+  position: absolute;
+  top: -95px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 19px;
+  font-weight: bold;
+  height: 50px;
+  background: #5c3152;
+  align-items: center;
+  width: 500px;
+}
+.nav-bar div:nth-child(1){
+  cursor: pointer;
+}

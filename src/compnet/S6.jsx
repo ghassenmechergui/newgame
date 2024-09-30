@@ -6,6 +6,7 @@ import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "../style/s6.css";
 import { isSV } from "./logic";
+import Nav from "./Nav";
 export default function S6() {
   const [j, setJ] = useState(false);
   const { position, dispatch } = usePosition();
@@ -14,6 +15,7 @@ export default function S6() {
     t: 2.5,
     l: 5,
   });
+  const [counter, setCounter] = useState(0);
   const navigate = useNavigate();
   let style = {
     position: "absolute",
@@ -52,6 +54,7 @@ export default function S6() {
           type: "rest",
           payload: refresh,
         });
+        setCounter((e) => e + 1);
         setTimeout(() => {
           setAlert(null);
         }, 3000);
@@ -77,6 +80,7 @@ export default function S6() {
           </Alert>
         );
         setTimeout(() => {
+          setCounter(0);
           navigate("/s7");
         }, 3000);
       } else if (collisionResult === "j") {
@@ -100,6 +104,7 @@ export default function S6() {
   return (
     <div className="s6">
       {alert}
+      <Nav niveau={6} counter={counter} />
       <div className="bac-start sv"></div>
       <div className="m1 m"></div>
       <div className="m2 m"></div>

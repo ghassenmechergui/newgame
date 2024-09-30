@@ -5,9 +5,10 @@ import { Alert } from "@mui/material";
 import isColliding from "./logic";
 import usePagination from "@mui/material/usePagination/usePagination";
 import { usePosition } from "../context/ContextPosition";
+import Nav from "./Nav";
 export default function S3() {
   const { position, dispatch } = usePosition();
-
+  const [counter, setCounter] = useState(0);
   const [alert, setalert] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function S3() {
         dispatch({
           type: "entre",
         });
+        setCounter((e) => e + 1);
         setTimeout(() => {
           setalert(null);
         }, 3000);
@@ -55,6 +57,7 @@ export default function S3() {
           </Alert>
         );
         setTimeout(() => {
+          setCounter(0);
           navigate("/s4");
         }, 3000);
       }
@@ -81,6 +84,7 @@ export default function S3() {
   };
   return (
     <div className="s3">
+      <Nav niveau={3} counter={counter} />
       <div className="bac-start"></div>
       <div className="bac-end"></div>
       <div style={style} className="start"></div>

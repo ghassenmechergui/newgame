@@ -6,6 +6,7 @@ import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "../style/s8.css";
 import { isSV } from "./logic";
+import Nav from "./Nav";
 
 export default function S8() {
   const [j, setJ] = useState(0);
@@ -15,6 +16,7 @@ export default function S8() {
     t: 2.5,
     l: 5,
   });
+  const [counter, setCounter] = useState(0);
   const navigate = useNavigate();
   let style = {
     position: "absolute",
@@ -54,6 +56,7 @@ export default function S8() {
           type: "rest",
           payload: refresh,
         });
+        setCounter((e) => e + 1);
         setTimeout(() => {
           setAlert(null);
         }, 3000);
@@ -81,7 +84,9 @@ export default function S8() {
             لقد فزت!
           </Alert>
         );
+
         setTimeout(() => {
+          setCounter(0);
           //navigate("/s6");
         }, 3000);
       } else if (collisionResult === "j") {
@@ -107,6 +112,7 @@ export default function S8() {
   return (
     <div className="s8">
       {alert}
+      <Nav niveau={8} counter={counter} />
       <div className="bac-start sv"></div>
       <div className="bac-end sv"></div>
       <div className="start" style={style}>

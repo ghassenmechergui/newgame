@@ -6,6 +6,7 @@ import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import anime from "animejs/lib/anime.es";
 import "../style/s4.css";
+import Nav from "./Nav";
 export default function () {
   const { position, dispatch } = usePosition();
   const [alert, setAlert] = useState(null);
@@ -15,6 +16,7 @@ export default function () {
     top: `${position.t}px` || "140px",
     left: `${position.l}px` || "20px",
   };
+  const [counter, setCounter] = useState(0);
   useEffect(() => {
     dispatch({ type: "entre" });
   }, []);
@@ -37,6 +39,7 @@ export default function () {
           </Alert>
         );
         dispatch({ type: "entre" });
+        setCounter((e) => e + 1);
         setTimeout(() => {
           setAlert(null);
         }, 3000);
@@ -57,6 +60,7 @@ export default function () {
           </Alert>
         );
         setTimeout(() => {
+          setCounter(0);
           navigate("/s5");
         }, 3000);
       }
@@ -90,6 +94,7 @@ export default function () {
   return (
     <div className="s4">
       {alert}
+      <Nav niveau={4} counter={counter} />
       <div className="bac-start"></div>
       <div className="m1 m"></div>
       <div className="m2 m"></div>

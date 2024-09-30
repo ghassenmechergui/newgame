@@ -6,6 +6,7 @@ import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import "../style/s5.css";
+import Nav from "./Nav";
 export default function S5() {
   const [j, setJ] = useState(false);
   const { position, dispatch } = usePosition();
@@ -16,6 +17,7 @@ export default function S5() {
     top: `${position.t}px` || "140px",
     left: `${position.l}px` || "20px",
   };
+  const [counter, setCounter] = useState(0);
   useEffect(() => {
     dispatch({ type: "entre" });
   }, []);
@@ -38,6 +40,7 @@ export default function S5() {
           </Alert>
         );
         dispatch({ type: "entre" });
+        setCounter((e) => e + 1);
         setTimeout(() => {
           setAlert(null);
         }, 3000);
@@ -58,6 +61,7 @@ export default function S5() {
           </Alert>
         );
         setTimeout(() => {
+          setCounter(0);
           navigate("/s6");
         }, 3000);
       } else if (collisionResult === "j") {
@@ -81,6 +85,7 @@ export default function S5() {
   return (
     <div className="s5">
       {alert}
+      <Nav niveau={5} counter={counter} />
       <div className="bac-start"></div>
       <div className="m1 m"></div>
       <div className="m2 m"></div>

@@ -3,11 +3,14 @@ import Alert from "@mui/material/Alert";
 import { useNavigate } from "react-router-dom";
 import isColliding from "./logic";
 import { usePosition } from "../context/ContextPosition";
+import Nav from "./Nav";
 export default function First() {
   const { position, dispatch } = usePosition();
 
   const [alert, setAlert] = useState(null);
   const navigate = useNavigate();
+  const [counter, setCounter] = useState(0);
+  const [niveau, setNiveau] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,6 +32,7 @@ export default function First() {
         dispatch({
           type: "entre",
         });
+        setCounter((e) => e + 1);
         setTimeout(() => {
           setAlert(null);
         }, 3000);
@@ -50,6 +54,7 @@ export default function First() {
         );
 
         setTimeout(() => {
+          setCounter(0);
           navigate("/seconde");
         }, 3000);
       }
@@ -77,6 +82,7 @@ export default function First() {
 
   return (
     <div className="first">
+      <Nav niveau={niveau} counter={counter} />
       <div className="bac-start"></div>
       <div className="bac-end"></div>
       <div style={style} className="start"></div>
